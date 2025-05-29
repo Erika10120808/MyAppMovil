@@ -1,0 +1,16 @@
+ion-content {
+display: flex;
+flex-direction: column;
+justify-content: center; 
+align-items: center;     
+height: 100%;
+text-align: center;
+}
+
+ion-button {
+--background: #007bff; 
+--color: white;        
+margin-top: 1rem;
+width: 80%;
+max-width: 300px;
+}
