@@ -24,3 +24,20 @@
     --background: #6c757d;
   }
 }
+
+
+.animate-input {
+  animation: slideRight 1s ease-out;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+

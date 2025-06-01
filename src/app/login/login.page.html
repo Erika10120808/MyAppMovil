@@ -1,19 +1,37 @@
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu Content</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">This is the menu content.</ion-content>
-</ion-menu>
-<div class="ion-page" id="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
-</div>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="ingresar()">
+    <ion-item>
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input
+        type="text"
+        formControlName="usuario"
+      ></ion-input>
+    </ion-item>
+    <div *ngIf="loginForm.get('usuario')?.invalid && (loginForm.get('usuario')?.touched || loginForm.get('usuario')?.dirty)" class="error-message">
+      <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['required']">El usuario es obligatorio.</ion-text>
+      <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['minlength']">Mínimo 3 caracteres.</ion-text>
+      <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['maxlength']">Máximo 8 caracteres.</ion-text>
+      <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['pattern']">Solo letras y números.</ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input
+        type="password"
+        formControlName="password"
+      ></ion-input>
+    </ion-item>
+    <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)" class="error-message">
+      <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</ion-text>
+      <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['pattern']">Debe ser 4 dígitos numéricos.</ion-text>
+    </div>
+
+    <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Ingresar</ion-button>
+  </form>
+</ion-content>

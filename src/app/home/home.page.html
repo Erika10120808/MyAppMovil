@@ -10,17 +10,31 @@
 
     <ion-item>
       <ion-label position="floating">Nombre</ion-label>
-      <ion-input [(ngModel)]="nombre" type="text" name="nombre"></ion-input>
+      <ion-input
+        id="nombreInput"
+        [(ngModel)]="nombre"
+        type="text"
+        name="nombre"
+      ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Apellido</ion-label>
-      <ion-input [(ngModel)]="apellido" type="text" name="apellido"></ion-input>
+      <ion-input
+        id="apellidoInput"
+        [(ngModel)]="apellido"
+        type="text"
+        name="apellido"
+      ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Nivel de educación</ion-label>
-      <ion-select [(ngModel)]="nivelEducacion" interface="popover" name="educacion">
+      <ion-select
+        [(ngModel)]="nivelEducacion"
+        interface="popover"
+        name="educacion"
+      >
         <ion-select-option value="Básica">Básica</ion-select-option>
         <ion-select-option value="Media">Media</ion-select-option>
         <ion-select-option value="Superior">Superior</ion-select-option>
@@ -29,7 +43,11 @@
 
     <ion-item>
       <ion-label position="floating">Fecha de nacimiento</ion-label>
-      <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="fechaNacimiento" name="fecha"></ion-datetime>
+      <ion-datetime
+        display-format="DD/MM/YYYY"
+        [(ngModel)]="fechaNacimiento"
+        name="fecha"
+      ></ion-datetime>
     </ion-item>
 
     <ion-button expand="block" (click)="mostrar()">Mostrar</ion-button>
