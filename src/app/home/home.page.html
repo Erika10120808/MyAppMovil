@@ -6,7 +6,8 @@
 
 <ion-content class="ion-padding">
   <div class="contenido-centrado">
-    <h2>Registrar {{ usuario }}!</h2>
+    <h2 class="titulo-animado">Registrar {{ usuario }}!</h2>
+
 
     <ion-item>
       <ion-label position="floating">Nombre</ion-label>
@@ -43,11 +44,17 @@
 
     <ion-item>
       <ion-label position="floating">Fecha de nacimiento</ion-label>
-      <ion-datetime
-        display-format="DD/MM/YYYY"
-        [(ngModel)]="fechaNacimiento"
-        name="fecha"
-      ></ion-datetime>
+      <mat-form-field appearance="fill" style="width: 100%;">
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Seleccione fecha"
+          [(ngModel)]="fechaNacimiento"
+          name="fechaNacimiento"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
     </ion-item>
 
     <ion-button expand="block" (click)="mostrar()">Mostrar</ion-button>
