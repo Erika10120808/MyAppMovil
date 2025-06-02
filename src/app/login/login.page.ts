@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class LoginPage {
   loginForm: FormGroup;
+usuario: any;
 
   constructor(
     private fb: FormBuilder,

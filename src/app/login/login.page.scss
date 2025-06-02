@@ -1,16 +1,41 @@
-ion-content {
+.contenido-centrado {
 display: flex;
 flex-direction: column;
-justify-content: center; 
-align-items: center;     
+justify-content: center;
+align-items: center;
 height: 100%;
 text-align: center;
+
+ion-item {
+width: 80%;
+max-width: 350px;
+margin-bottom: 12px;
 }
 
 ion-button {
---background: #007bff; 
---color: white;        
-margin-top: 1rem;
+--background: #007bff;
+--color: white;
 width: 80%;
 max-width: 300px;
+margin-top: 10px;
+}
+
+ion-button[color="medium"] {
+--background: #6c757d;
+}
+}
+
+.titulo-animado {
+animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+0% {
+opacity: 0;
+transform: translateY(-20px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+}
 }
