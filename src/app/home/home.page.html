@@ -6,7 +6,8 @@
 
 <ion-content class="ion-padding">
   <div class="contenido-centrado">
-    <h2 class="titulo-animado">¡Registrate {{ usuario }}!</h2>
+    <h2 class="titulo-animado">Registrate {{ usuario }}!</h2>
+
 
     <ion-item>
       <ion-label position="floating">Nombre</ion-label>
@@ -25,24 +26,6 @@
         [(ngModel)]="apellido"
         type="text"
         name="apellido"
-      ></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Correo Electrónico</ion-label>
-      <ion-input
-        [(ngModel)]="correo"
-        type="email"
-        name="correo"
-      ></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input
-        [(ngModel)]="password"
-        type="password"
-        name="password"
       ></ion-input>
     </ion-item>
 
@@ -76,6 +59,5 @@
 
     <ion-button expand="block" (click)="mostrar()">Mostrar</ion-button>
     <ion-button expand="block" color="medium" (click)="limpiar()">Limpiar</ion-button>
-    <ion-button expand="block" color="success" (click)="volverLogin()">Registrar</ion-button>
   </div>
 </ion-content>
