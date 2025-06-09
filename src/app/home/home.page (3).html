@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="contenido-centrado">
+    <h2>Registrar {{ usuario }}!</h2>
+
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="nombre" type="text" name="nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="apellido" type="text" name="apellido"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nivel de educación</ion-label>
+      <ion-select [(ngModel)]="nivelEducacion" interface="popover" name="educacion">
+        <ion-select-option value="Básica">Básica</ion-select-option>
+        <ion-select-option value="Media">Media</ion-select-option>
+        <ion-select-option value="Superior">Superior</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Fecha de nacimiento</ion-label>
+      <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="fechaNacimiento" name="fecha"></ion-datetime>
+    </ion-item>
+
+    <ion-button expand="block" (click)="mostrar()">Mostrar</ion-button>
+    <ion-button expand="block" color="medium" (click)="limpiar()">Limpiar</ion-button>
+  </div>
+</ion-content>
