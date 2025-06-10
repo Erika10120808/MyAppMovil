@@ -49,9 +49,15 @@ usuario: any;
   ingresar() {
     if (this.loginForm.valid) {
       const usuario = this.loginForm.get('usuario')?.value;
+      const password = this.loginForm.get('password')?.value;
+
       const navigationExtras: NavigationExtras = {
-        state: { usuario }
+        queryParams: {
+          usuario: usuario,
+          password: password
+        }
       };
+
       this.router.navigate(['/home'], navigationExtras);
     } else {
       alert('Por favor, completa todos los campos correctamente.');
