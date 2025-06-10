@@ -39,3 +39,24 @@ opacity: 1;
 transform: translateY(0);
 }
 }
+
+.botones-header {
+background: #b3e0ff;
+border-radius: 8px;
+padding: 4px 8px;
+display: inline-block;
+margin-top: 8px;
+}
+
+.botones-header-flotantes {
+background: #b3e0ff;
+border-radius: 8px;
+padding: 4px 8px;
+display: flex;
+justify-content: flex-start;
+gap: 8px;
+margin: 12px 0 20px 0;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+position: relative;
+z-index: 10;
+}

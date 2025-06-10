@@ -2,40 +2,60 @@
   <ion-toolbar>
     <ion-title class="titulo-animado">Login</ion-title>
   </ion-toolbar>
+  <div class="botones-header-flotantes">
+    <ion-buttons slot="start">
+      <ion-button color="light" (click)="irAConfiguracion()">Configuración</ion-button>
+      <ion-button color="light" (click)="irAHome()">Home</ion-button>
+    </ion-buttons>
+  </div>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div class="contenido-centrado">
     <h2 class="titulo-animado"> Ingresar {{ usuario }}</h2>
 
-<ion-content>
-  <form [formGroup]="loginForm" (ngSubmit)="ingresar()" class="contenido-centrado">
-    <ion-item>
-      <ion-label position="floating">Usuario</ion-label>
-      <ion-input
-        type="text"
-        formControlName="usuario"
-      ></ion-input>
-    </ion-item>
-    <div *ngIf="loginForm.get('usuario')?.invalid && (loginForm.get('usuario')?.touched || loginForm.get('usuario')?.dirty)" class="error-message">
-      <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['required']">El usuario es obligatorio.</ion-text>
-      <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['minlength']">Mínimo 3 caracteres.</ion-text>
-      <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['maxlength']">Máximo 8 caracteres.</ion-text>
-      <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['pattern']">Solo letras y números.</ion-text>
-    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="ingresar()" class="contenido-centrado">
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input
+          type="text"
+          formControlName="usuario"
+        ></ion-input>
+      </ion-item>
+      <div *ngIf="loginForm.get('usuario')?.invalid && (loginForm.get('usuario')?.touched || loginForm.get('usuario')?.dirty)" class="error-message">
+        <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['required']">El usuario es obligatorio.</ion-text>
+        <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['minlength']">Mínimo 3 caracteres.</ion-text>
+        <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['maxlength']">Máximo 8 caracteres.</ion-text>
+        <ion-text color="danger" *ngIf="loginForm.get('usuario')?.errors?.['pattern']">Solo letras y números.</ion-text>
+      </div>
 
-    <ion-item>
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input
-        type="password"
-        formControlName="password"
-      ></ion-input>
-    </ion-item>
-    <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)" class="error-message">
-      <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</ion-text>
-      <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['pattern']">Debe ser 4 dígitos numéricos.</ion-text>
-    </div>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input
+          type="password"
+          formControlName="password"
+        ></ion-input>
+      </ion-item>
+      <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)" class="error-message">
+        <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</ion-text>
+        <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['pattern']">Debe ser 4 dígitos numéricos.</ion-text>
+      </div>
 
-    <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Ingresar</ion-button>
-  </form>
+      <ion-item>
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input
+          type="email"
+          formControlName="correo"
+          inputmode="email"
+          autocomplete="email"
+        ></ion-input>
+      </ion-item>
+      <div *ngIf="loginForm.get('correo')?.invalid && (loginForm.get('correo')?.touched || loginForm.get('correo')?.dirty)" class="error-message">
+        <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['required']">El correo es obligatorio.</ion-text>
+        <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['email']">Debe ser un correo válido.</ion-text>
+      </div>
+
+      <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Ingresar</ion-button>
+    </form>
+  </div>
 </ion-content>

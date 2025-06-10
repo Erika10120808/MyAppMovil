@@ -43,24 +43,33 @@ usuario: any;
           Validators.pattern('\\d{4}'),
         ],
       ],
+      correo: [
+        '',
+        [
+          Validators.required,
+          Validators.email
+        ]
+      ],
     });
   }
 
   ingresar() {
     if (this.loginForm.valid) {
-      const usuario = this.loginForm.get('usuario')?.value;
-      const password = this.loginForm.get('password')?.value;
-
-      const navigationExtras: NavigationExtras = {
-        queryParams: {
-          usuario: usuario,
-          password: password
-        }
-      };
-
-      this.router.navigate(['/home'], navigationExtras);
+      this.router.navigate(['/principal']);
     } else {
       alert('Por favor, completa todos los campos correctamente.');
     }
+  }
+
+  irAPerfil() {
+    this.router.navigate(['/perfil']);
+  }
+
+  irAConfiguracion() {
+    this.router.navigate(['/configuracion']);
+  }
+
+  irAHome() {
+    this.router.navigate(['/home']);
   }
 }

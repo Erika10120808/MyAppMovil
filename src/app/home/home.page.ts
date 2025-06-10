@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -33,7 +33,7 @@ export class HomePage implements OnInit {
   nivelEducacion: string = '';
   fechaNacimiento: string = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -55,13 +55,13 @@ export class HomePage implements OnInit {
     this.nivelEducacion = '';
     this.fechaNacimiento = '';
 
-    // Aplica la animación de izquierda a derecha
+
     const nombreInput = document.querySelector('#nombreInput');
     const apellidoInput = document.querySelector('#apellidoInput');
 
     if (nombreInput) {
       nombreInput.classList.remove('animate-input');
-      void (nombreInput as HTMLElement).offsetWidth; // Forzar reinicio
+      void (nombreInput as HTMLElement).offsetWidth; 
       nombreInput.classList.add('animate-input');
     }
     if (apellidoInput) {
@@ -69,5 +69,13 @@ export class HomePage implements OnInit {
       void (apellidoInput as HTMLElement).offsetWidth;
       apellidoInput.classList.add('animate-input');
     }
+  }
+
+  irALogin() {
+    this.router.navigate(['/login']);
+  }
+
+  irARegistro() {
+    this.router.navigate(['/registro']);
   }
 }
