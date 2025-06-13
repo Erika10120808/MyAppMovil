@@ -51,6 +51,6 @@ export class LoginPage {
   }
 
   irAHome() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/registro1']);
   }
 }
