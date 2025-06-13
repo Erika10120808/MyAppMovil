@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonHeader, IonContent, IonTitle } from "@ionic/angular/standalone";
+import { IonHeader, IonContent, IonTitle, IonButton } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-principal',
