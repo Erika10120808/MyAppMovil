@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonHeader, IonTitle, IonToolbar, IonButton } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-configuracion',
