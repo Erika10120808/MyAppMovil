@@ -5,7 +5,8 @@ import { IonHeader, IonTitle, IonToolbar, IonButton } from "@ionic/angular/stand
 @Component({
   selector: 'app-configuracion',
   templateUrl: './configuracion.page.html',
-  styleUrls: ['./configuracion.page.scss']
+  styleUrls: ['./configuracion.page.scss'],
+  standalone: false
 })
 export class ConfiguracionPage {
   constructor(private router: Router) {}

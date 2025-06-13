@@ -12,8 +12,10 @@ import { PrincipalPage } from './principal.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PrincipalPageRoutingModule,
-    PrincipalPage 
+    PrincipalPageRoutingModule
+  ],
+  declarations: [
+    PrincipalPage
   ]
 })
 export class PrincipalPageModule {}

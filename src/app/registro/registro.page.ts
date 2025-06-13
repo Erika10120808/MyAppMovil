@@ -5,7 +5,8 @@ import { DatabaseService } from '../services/database.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
-  styleUrls: ['./registro.page.scss']
+  styleUrls: ['./registro.page.scss'],
+  standalone: false
 })
 export class RegistroPage {
   registroForm: FormGroup;

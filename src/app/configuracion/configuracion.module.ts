@@ -13,8 +13,10 @@ import { ConfiguracionPage } from './configuracion.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ConfiguracionPageRoutingModule,
-    ConfiguracionPage  
+    ConfiguracionPageRoutingModule
+  ],
+  declarations: [
+    ConfiguracionPage
   ]
 })
 export class ConfiguracionPageModule {}

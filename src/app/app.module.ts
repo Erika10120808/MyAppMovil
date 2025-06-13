@@ -11,7 +11,9 @@ import { SQLite } from '@ionic-native/sqlite/ngx';
 import { DatabaseService } from './services/database.service';
 
 @NgModule({
+  declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync(), SQLite, DatabaseService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
