@@ -1,41 +1,24 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router, NavigationExtras, RouterModule } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule
-  ],
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  styleUrls: ['./login.page.scss']
 })
 export class LoginPage {
   loginForm: FormGroup;
-usuario: any;
+  usuario: any;
 
   constructor(
     private fb: FormBuilder,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
-      usuario: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(8),
-          Validators.pattern('[A-Za-z0-9]+'),
-        ],
-      ],
       password: [
         '',
         [

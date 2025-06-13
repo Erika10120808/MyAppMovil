@@ -1,0 +1,36 @@
+<ion-header>
+<ion-toolbar>
+<ion-title>Registro</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<form [formGroup]="registroForm" (ngSubmit)="registrar()">
+<ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input type="text" formControlName="nombre"></ion-input>
+</ion-item>
+<ion-item>
+    <ion-label position="floating">Apellido</ion-label>
+    <ion-input type="text" formControlName="apellido"></ion-input>
+</ion-item>
+<ion-item>
+    <ion-label position="floating">Fecha de nacimiento</ion-label>
+    <ion-input type="date" formControlName="fecha_nacimiento"></ion-input>
+</ion-item>
+<ion-item>
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input type="email" formControlName="correo"></ion-input>
+</ion-item>
+<ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" formControlName="contrasena"></ion-input>
+</ion-item>
+<ion-item>
+    <ion-label position="floating">Confirmar Contraseña</ion-label>
+    <ion-input type="password" formControlName="confirmarContrasena"></ion-input>
+</ion-item>
+<ion-button expand="full" type="submit">Registrar</ion-button>
+<div *ngIf="mensaje" class="mensaje">{{ mensaje }}</div>
+</form>
+</ion-content>

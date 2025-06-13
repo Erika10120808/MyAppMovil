@@ -16,6 +16,5 @@ import { LoginPage } from './login.page';
     LoginPageRoutingModule,
     LoginPage
   ],
-  
 })
 export class LoginPageModule {}
