@@ -1,79 +1,59 @@
 <ion-header>
-<ion-toolbar>
-<ion-title>Registro</ion-title>
-</ion-toolbar>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-<div class="contenido-centrado">
+  <div class="contenido-centrado">
+    <ion-item>
+      <ion-label position="floating">Escribe tu nombre</ion-label>
+      <ion-input [(ngModel)]="nombre" type="text" name="nombre"></ion-input>
+    </ion-item>
 
-<ion-item>
-    <ion-label position="floating">Nombre</ion-label>
-    <ion-input
-    id="nombreInput"
-    [(ngModel)]="nombre"
-    type="text"
-    name="nombre"
-    ></ion-input>
-</ion-item>
+    <ion-item>
+      <ion-label position="floating">Escribe tu apellido</ion-label>
+      <ion-input [(ngModel)]="apellido" type="text" name="apellido"></ion-input>
+    </ion-item>
 
-<ion-item>
-    <ion-label position="floating">Apellido</ion-label>
-    <ion-input
-    id="apellidoInput"
-    [(ngModel)]="apellido"
-    type="text"
-    name="apellido"
-    ></ion-input>
-</ion-item>
+    <ion-item>
+      <ion-label>Escoge tu nivel de educación</ion-label>
+      <ion-select [(ngModel)]="nivelEducacion" interface="popover" name="educacion">
+        <ion-select-option value="Básica">Básica</ion-select-option>
+        <ion-select-option value="Media">Media</ion-select-option>
+        <ion-select-option value="Superior">Superior</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-<ion-item>
-    <ion-label>Nivel de educación</ion-label>
-    <ion-select
-    [(ngModel)]="nivelEducacion"
-    interface="popover"
-    name="educacion"
-    >
-    <ion-select-option value="Básica">Básica</ion-select-option>
-    <ion-select-option value="Media">Media</ion-select-option>
-    <ion-select-option value="Superior">Superior</ion-select-option>
-    </ion-select>
-</ion-item>
+    <ion-item>
+      <ion-label>Fecha de nacimiento</ion-label>
+      <ion-datetime-button datetime="fechaNac"></ion-datetime-button>
+    </ion-item>
 
-<ion-item>
-    <ion-label position="floating">Fecha de nacimiento</ion-label>
+    <ion-modal trigger="fechaNac"></ion-modal>
+
     <ion-datetime
-    display-format="DD/MM/YYYY"
-    [(ngModel)]="fechaNacimiento"
-    name="fechaNacimiento"
-    placeholder="Seleccione fecha"
+      id="fechaNac"
+      presentation="date"
+      [(ngModel)]="fechaNacimiento"
+      name="fechaNacimiento"
+      show-default-buttons="true"
     ></ion-datetime>
-</ion-item>
 
-<ion-item>
-    <ion-label position="floating">Correo</ion-label>
-    <ion-input
-    id="correoInput"
-    [(ngModel)]="correo"
-    type="email"
-    name="correo"
-    autocomplete="email"
-    ></ion-input>
-</ion-item>
+    <ion-item>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input [(ngModel)]="correo" type="email" name="correo" autocomplete="email"></ion-input>
+    </ion-item>
 
-<ion-item>
-    <ion-label position="floating">Contraseña</ion-label>
-    <ion-input
-    id="contrasenaInput"
-    [(ngModel)]="contrasena"
-    type="password"
-    name="contrasena"
-    autocomplete="new-password"
-    ></ion-input>
-</ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input [(ngModel)]="contrasena" type="password" name="contrasena" autocomplete="new-password"></ion-input>
+    </ion-item>
+  </div>
 
-<ion-button expand="block" (click)="mostrar()">Mostrar</ion-button>
-<ion-button expand="block" color="medium" (click)="limpiar()">Limpiar</ion-button>
-<ion-button expand="block" color="secondary" (click)="irALogin()">Login</ion-button>
-</div>
+  <div class="botones-fijos">
+    <ion-button expand="block" size="small" (click)="mostrar()">Mostrar</ion-button>
+    <ion-button expand="block" color="medium" size="small" (click)="limpiar()">Limpiar</ion-button>
+    <ion-button expand="block" color="secondary" size="small" (click)="irALogin()">Login</ion-button>
+  </div>
 </ion-content>

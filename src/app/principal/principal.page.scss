@@ -1,0 +1,42 @@
+.contenido-centrado {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+min-height: 100vh;
+padding-top: 32px;
+padding-left: 16px;
+padding-right: 16px;
+
+}
+
+.img-centrada {
+display: block;
+margin: 0 auto 32px auto;
+max-width: 220px;
+width: 80%;
+}
+
+.botones-contenedor {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+max-width: 300px;
+margin: 0 auto;
+}
+
+ion-button {
+--background: #1565c0;
+--color: #fff;
+--border-radius: 24px;
+font-weight: bold;
+margin-bottom: 16px;
+width: 100%;
+box-shadow: 0 2px 8px rgba(21,101,192,0.08);
+letter-spacing: 1px;
+}
+
+ion-button:last-child {
+margin-bottom: 0;
+}

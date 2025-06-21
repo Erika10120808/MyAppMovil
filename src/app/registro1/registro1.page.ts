@@ -1,36 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonHeader, IonInput } from "@ionic/angular/standalone";
 
 @Component({
-selector: 'app-registro1',
+selector: 'app-registro',
 templateUrl: './registro1.page.html',
 styleUrls: ['./registro1.page.scss'],
-standalone: false
 })
-export class Registro1Page implements OnInit {
-usuario: string = '';
-nombre: string = '';
-apellido: string = '';
-nivelEducacion: string = '';
-fechaNacimiento: string = '';
-correo: string = '';
-contrasena: string = '';
+export class RegistroPage {
+nombre = '';
+apellido = '';
+nivelEducacion = '';
+fechaNacimiento = '';
+correo = '';
+contrasena = '';
 
-constructor(private route: ActivatedRoute, private router: Router) {}
-
-ngOnInit() {
-this.route.queryParams.subscribe(params => {
-    if (params['usuario']) {
-    this.usuario = params['usuario'];
-    }
-});
-}
+constructor(private router: Router) {}
 
 mostrar() {
-alert(
-    `Nombre: ${this.nombre}\nApellido: ${this.apellido}\nEducación: ${this.nivelEducacion}\nFecha de Nacimiento: ${this.fechaNacimiento}`
-);
+console.log('Nombre:', this.nombre);
+console.log('Apellido:', this.apellido);
+console.log('Nivel de Educación:', this.nivelEducacion);
+console.log('Fecha de Nacimiento:', this.fechaNacimiento);
+console.log('Correo:', this.correo);
+console.log('Contraseña:', this.contrasena);
 }
 
 limpiar() {
@@ -40,27 +33,9 @@ this.nivelEducacion = '';
 this.fechaNacimiento = '';
 this.correo = '';
 this.contrasena = '';
-
-const nombreInput = document.querySelector('#nombreInput');
-const apellidoInput = document.querySelector('#apellidoInput');
-
-if (nombreInput) {
-    nombreInput.classList.remove('animate-input');
-    void (nombreInput as HTMLElement).offsetWidth; 
-    nombreInput.classList.add('animate-input');
-}
-if (apellidoInput) {
-    apellidoInput.classList.remove('animate-input');
-    void (apellidoInput as HTMLElement).offsetWidth;
-    apellidoInput.classList.add('animate-input');
-}
 }
 
 irALogin() {
 this.router.navigate(['/login']);
-}
-
-irARegistro() {
-this.router.navigate(['/registro']);
 }
 }
