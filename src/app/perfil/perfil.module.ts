@@ -10,10 +10,10 @@ import { PerfilPage } from './perfil.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilPageRoutingModule,
-    PerfilPage
+    PerfilPageRoutingModule
   ],
   declarations: [
+    PerfilPage
   ]
 })
 export class PerfilPageModule {}

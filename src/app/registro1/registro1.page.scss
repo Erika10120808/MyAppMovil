@@ -1,62 +1,28 @@
 .contenido-centrado {
 display: flex;
 flex-direction: column;
+justify-content: center;
 align-items: center;
-justify-content: flex-start;
-min-height: 100vh;
-padding-top: 32px;
-position: relative;
+height: 100%;
+text-align: center;
 
 ion-item {
 width: 80%;
 max-width: 350px;
 margin-bottom: 12px;
-flex-shrink: 0;
-}
-}
-
-.botones-fijos {
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100vw;
-display: flex;
-flex-direction: column;
-align-items: center;
-background: #fff;
-padding: 12px 0 16px 0;
-box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
-z-index: 10;
 }
 
 ion-button {
---background: #1565c0;
---color: #fff;
---border-radius: 24px;
-font-weight: bold;
-margin-bottom: 16px;
+--background: #007bff;
+--color: white;
 width: 80%;
 max-width: 300px;
-box-shadow: 0 2px 8px rgba(21,101,192,0.08);
-letter-spacing: 1px;
+margin-top: 10px;
 }
 
-ion-button[size="small"] {
-font-size: 0.95rem;
-padding: 0.4em 0.8em;
-min-height: 32px;
-max-width: 180px;
-width: 80%;
-margin-bottom: 10px;
---border-radius: 18px;
+ion-button[color="medium"] {
+--background: #6c757d;
 }
-
-ion-button:last-child {
-margin-bottom: 0;
-}
-
-ion-button[size="small"]:last-child {
-margin-bottom: 0;
 }
 
 .animate-input {
@@ -87,26 +53,5 @@ transform: translateY(-20px);
 opacity: 1;
 transform: translateY(0);
 }
-}
-
-ion-datetime {
-max-width: 250px;
-font-size: 0.95rem;
-margin: 0 auto;
---min-height: 40px;
-}
-
-ion-item[hidden], .ng-hide {
-display: none !important;
-}
-
-.fecha-seleccionada {
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 8px 0;
-font-size: 1rem;
-color: #222;
 }
 

@@ -3,18 +3,16 @@
     <ion-title class="titulo-animado">Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<div class="botones-header-flotantes">
+  <ion-buttons slot="start">
+    <ion-button color="light" (click)="irAConfiguracion()">Configuración</ion-button>
+    <ion-button color="light" (click)="irAHome()">Home</ion-button>
+  </ion-buttons>
+</div>
 
 <ion-content class="ion-padding">
-  <div class="botones-header-flotantes">
-    <ion-buttons slot="start">
-      <ion-button color="light" (click)="irAConfiguracion()">Configuración</ion-button>
-      <ion-button color="light" (click)="irAHome()">Home</ion-button>
-    </ion-buttons>
-  </div>
-
   <div class="contenido-centrado">
-    <h2 class="titulo-animado">Ingresar {{ usuario }}</h2>
+    <h2 class="titulo-animado"> Ingresar {{ usuario }}</h2>
 
     <form [formGroup]="loginForm" (ngSubmit)="ingresar()" class="contenido-centrado">
       <ion-item>
@@ -26,12 +24,11 @@
           autocomplete="email"
         ></ion-input>
       </ion-item>
-
       <div *ngIf="loginForm.get('correo')?.invalid && (loginForm.get('correo')?.touched || loginForm.get('correo')?.dirty)" class="error-message">
         <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['required']">El correo es obligatorio.</ion-text>
         <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['email']">Debe ser un correo válido.</ion-text>
       </div>
-
+      
       <ion-item>
         <ion-label position="floating">Contraseña</ion-label>
         <ion-input
@@ -39,14 +36,12 @@
           formControlName="password"
         ></ion-input>
       </ion-item>
-
       <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)" class="error-message">
         <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</ion-text>
         <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['pattern']">Debe ser 4 dígitos numéricos.</ion-text>
       </div>
 
       <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Ingresar</ion-button>
-      <div class="olvide-contrasena">¿Olvidó su contraseña?</div>
     </form>
   </div>
 </ion-content>

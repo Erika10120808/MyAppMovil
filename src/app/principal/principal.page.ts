@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonHeader, IonToolbar } from "@ionic/angular/standalone";
+import { IonHeader, IonContent, IonTitle } from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.page.html',
-  styleUrls: ['./principal.page.scss']
+  styleUrls: ['./principal.page.scss'],
+  standalone: false
 })
 export class PrincipalPage {
   constructor(private router: Router) {}
@@ -13,9 +14,4 @@ export class PrincipalPage {
   irALogin() {
     this.router.navigate(['/login']);
   }
-
-  irARegistro1() {
-    this.router.navigate(['/registro1']);
-  }
 }
-

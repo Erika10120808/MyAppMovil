@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { PrincipalPageRoutingModule } from './principal-routing.module';
+
 import { PrincipalPage } from './principal.page';
 
 @NgModule({
@@ -11,11 +12,10 @@ import { PrincipalPage } from './principal.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PrincipalPageRoutingModule,
-    PrincipalPage 
+    PrincipalPageRoutingModule
   ],
   declarations: [
-    
+    PrincipalPage
   ]
 })
 export class PrincipalPageModule {}
