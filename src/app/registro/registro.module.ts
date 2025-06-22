@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { Registro1Page } from './registro.page';
+import { IonicModule } from '@ionic/angular';
+
+import { RegistroPageRoutingModule } from './registro-routing.module';
+import { RegistroPage } from './registro.page'; 
 
 @NgModule({
-imports: [
-CommonModule,
-FormsModule,
-IonicModule
-],
-declarations: [
-Registro1Page
-]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RegistroPageRoutingModule  
+  ],
+  declarations: [RegistroPage]
 })
 export class RegistroPageModule {}
-

@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   selector: 'app-configuracion',
   templateUrl: './configuracion.page.html',
   styleUrls: ['./configuracion.page.scss'],
-  
+  standalone: false
 })
 export class ConfiguracionPage {
   constructor(private router: Router) {}

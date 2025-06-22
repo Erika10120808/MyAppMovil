@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
   selector: 'app-principal',
   templateUrl: './principal.page.html',
   styleUrls: ['./principal.page.scss'],
+  standalone: false
 })
 export class PrincipalPage {
   nombre: string = '';

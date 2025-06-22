@@ -3,12 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
-selector: 'app-registro1',
+selector: 'app-registro',
 templateUrl: './registro.page.html',
 styleUrls: ['./registro.page.scss'],
+standalone: false
 
 })
-export class Registro1Page implements OnInit {
+export class RegistroPage implements OnInit {
 usuario: string = '';
 nombre: string = '';
 apellido: string = '';
