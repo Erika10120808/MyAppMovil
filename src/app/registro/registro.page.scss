@@ -1,57 +1,48 @@
 .contenido-centrado {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-height: 100%;
-text-align: center;
-
-ion-item {
-width: 80%;
-max-width: 350px;
-margin-bottom: 12px;
+max-width: 500px;
+margin: 0 auto;
+padding: 10px;
+animation: fadeIn 0.8s ease-in-out;
 }
 
-ion-button {
---background: #007bff;
---color: white;
-width: 80%;
-max-width: 300px;
-margin-top: 10px;
+.animated-item ion-input,
+.animated-item ion-select,
+.animated-item ion-datetime {
+transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-ion-button[color="medium"] {
---background: #6c757d;
-}
-}
-
-.animate-input {
-animation: slideRight 1s ease-out;
+.animated-item ion-input:focus,
+.animated-item ion-select:focus,
+.animated-item ion-datetime:focus {
+background-color: #e0f7fa;
+color: #00796b;
 }
 
-@keyframes slideRight {
-0% {
-transform: translateX(-100%);
-opacity: 0;
-}
-100% {
-transform: translateX(0);
-opacity: 1;
-}
+.animated-btn {
+transition: background-color 0.3s ease;
 }
 
-.titulo-animado {
-animation: fadeIn 1s ease-out;
+.animated-btn:hover,
+.animated-btn:focus {
+background-color: var(--ion-color-light);
+color: var(--ion-color-primary);
 }
 
 @keyframes fadeIn {
-0% {
+from {
 opacity: 0;
-transform: translateY(-20px);
+transform: translateY(10px);
 }
-100% {
+to {
 opacity: 1;
 transform: translateY(0);
 }
 }
+
+.calendario-oculto {
+max-width: 100%;
+margin: 10px auto;
+display: block;
+}
+
 

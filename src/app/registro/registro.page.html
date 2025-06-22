@@ -7,73 +7,55 @@
 <ion-content class="ion-padding">
 <div class="contenido-centrado">
 
-<ion-item>
+<ion-item class="animated-item">
     <ion-label position="floating">Nombre</ion-label>
-    <ion-input
-    id="nombreInput"
-    [(ngModel)]="nombre"
-    type="text"
-    name="nombre"
-    ></ion-input>
+    <ion-input id="nombreInput" [(ngModel)]="nombre" type="text" name="nombre"></ion-input>
 </ion-item>
 
-<ion-item>
+<ion-item class="animated-item">
     <ion-label position="floating">Apellido</ion-label>
-    <ion-input
-    id="apellidoInput"
-    [(ngModel)]="apellido"
-    type="text"
-    name="apellido"
-    ></ion-input>
+    <ion-input id="apellidoInput" [(ngModel)]="apellido" type="text" name="apellido"></ion-input>
 </ion-item>
 
-<ion-item>
+<ion-item class="animated-item">
     <ion-label>Nivel de educación</ion-label>
-    <ion-select
-    [(ngModel)]="nivelEducacion"
-    interface="popover"
-    name="educacion"
-    >
+    <ion-select [(ngModel)]="nivelEducacion" interface="popover" name="educacion">
     <ion-select-option value="Básica">Básica</ion-select-option>
     <ion-select-option value="Media">Media</ion-select-option>
     <ion-select-option value="Superior">Superior</ion-select-option>
     </ion-select>
 </ion-item>
 
-<ion-item>
+
+<ion-item class="animated-item" (click)="mostrarCalendario = true">
     <ion-label position="floating">Fecha de nacimiento</ion-label>
-    <ion-datetime
-    display-format="DD/MM/YYYY"
+    <ion-input [value]="fechaNacimiento | date:'dd/MM/yyyy'" readonly></ion-input>
+</ion-item>
+
+
+<ion-datetime
+    *ngIf="mostrarCalendario"
+    presentation="date"
     [(ngModel)]="fechaNacimiento"
-    name="fechaNacimiento"
-    placeholder="Seleccione fecha"
-    ></ion-datetime>
-</ion-item>
+    (ionChange)="ocultarCalendario()"
+    class="calendario-oculto">
+</ion-datetime>
 
-<ion-item>
+<ion-item class="animated-item">
     <ion-label position="floating">Correo</ion-label>
-    <ion-input
-    id="correoInput"
-    [(ngModel)]="correo"
-    type="email"
-    name="correo"
-    autocomplete="email"
-    ></ion-input>
+    <ion-input id="correoInput" [(ngModel)]="correo" type="email" name="correo" autocomplete="email"></ion-input>
 </ion-item>
 
-<ion-item>
+<ion-item class="animated-item">
     <ion-label position="floating">Contraseña</ion-label>
-    <ion-input
-    id="contrasenaInput"
-    [(ngModel)]="contrasena"
-    type="password"
-    name="contrasena"
-    autocomplete="new-password"
-    ></ion-input>
+    <ion-input id="contrasenaInput" [(ngModel)]="contrasena" type="password" name="contrasena" autocomplete="new-password"></ion-input>
 </ion-item>
 
-<ion-button expand="block" (click)="mostrar()">Mostrar</ion-button>
-<ion-button expand="block" color="medium" (click)="limpiar()">Limpiar</ion-button>
-<ion-button expand="block" color="secondary" (click)="irALogin()">volver</ion-button>
+<ion-button expand="block" color="primary" class="animated-btn" (click)="irALogin()">Aceptar</ion-button>
+<ion-button expand="block" class="animated-btn" (click)="mostrar()">Mostrar</ion-button>
+<ion-button expand="block" color="medium" class="animated-btn" (click)="limpiar()">Limpiar</ion-button>
+<ion-button expand="block" color="secondary" class="animated-btn" (click)="irALogin()">Volver</ion-button>
+
+
 </div>
 </ion-content>

@@ -9,26 +9,25 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule),
     canActivate: [() => import('./guards/auth.guard').then(m => m.authGuard)]
-
   },
-  
   {
     path: 'configuracion',
-    loadChildren: () => import('./configuracion/configuracion.module').then( m => m.ConfiguracionPageModule)
+    loadChildren: () => import('./configuracion/configuracion.module').then(m => m.ConfiguracionPageModule)
   },
-
-  
   {
     path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule)
   },
   {
     path: 'calendario',
-    loadChildren: () => import('./calendario/calendario.module').then( m => m.CalendarioPageModule)
+    loadChildren: () => import('./calendario/calendario.module').then(m => m.CalendarioPageModule)
   },
-
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilPageModule)
+  }
 ];
 
 @NgModule({

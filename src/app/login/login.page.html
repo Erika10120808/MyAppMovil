@@ -2,23 +2,24 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Menú</ion-title>
+      <ion-title>Inicio</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content [fullscreen]="true" class="ion-padding">
 
-    <div class="logo-container">
+    <div class="logo-container ion-text-center">
       <img src="assets/imagenes/aa8cd491-a400-4d12-9420-9a5b2e45da29.png"
           alt="Company logo"
-          class="logo-img" />
+          class="logo-img"
+          style="width: 100px; border-radius: 50%;" />
     </div>
 
     <div class="contenido-centrado">
       <form [formGroup]="loginForm" (ngSubmit)="ingresar()">
 
+      
         <ion-item>
           <ion-label position="floating">Correo electrónico</ion-label>
           <ion-input
@@ -38,6 +39,7 @@
           </ion-text>
         </div>
 
+        
         <ion-item>
           <ion-label position="floating">Contraseña (4 dígitos)</ion-label>
           <ion-input
@@ -58,13 +60,27 @@
           </ion-text>
         </div>
 
+      
         <ion-button class="btn-custom" expand="block" type="submit" [disabled]="loginForm.invalid">
-  Ingresar
-</ion-button>
+          Ingresar
+        </ion-button>
 
-</form>
+        
+        <div class="ion-text-center" style="margin-top: 8px;">
+          <ion-text color="medium">
+            <small>¿Olvidaste tu contraseña?</small>
+          </ion-text>
+        </div>
 
-  </div>
+      
+        <div class="ion-text-center" style="margin-top: 16px;">
+          <ion-button fill="clear" color="primary" routerLink="/registro">
+            ¿No tienes cuenta? Regístrate
+          </ion-button>
+        </div>
+
+      </form>
+    </div>
 
   </ion-content>
 </div>

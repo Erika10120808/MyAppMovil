@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
 selector: 'app-registro',
 templateUrl: './registro.page.html',
 styleUrls: ['./registro.page.scss'],
 standalone: false
-
 })
 export class RegistroPage implements OnInit {
 usuario: string = '';
 nombre: string = '';
 apellido: string = '';
 nivelEducacion: string = '';
-fechaNacimiento: string = '';
+fechaNacimiento: any = '';
 correo: string = '';
 contrasena: string = '';
+mostrarCalendario: boolean = false;
 
 constructor(private route: ActivatedRoute, private router: Router) {}
 
@@ -47,7 +46,7 @@ const apellidoInput = document.querySelector('#apellidoInput');
 
 if (nombreInput) {
     nombreInput.classList.remove('animate-input');
-    void (nombreInput as HTMLElement).offsetWidth; 
+    void (nombreInput as HTMLElement).offsetWidth;
     nombreInput.classList.add('animate-input');
 }
 if (apellidoInput) {
@@ -63,5 +62,23 @@ this.router.navigate(['/login']);
 
 irARegistro() {
 this.router.navigate(['/registro']);
+}
+
+irACalendario() {
+
+this.router.navigate(['/perfil'], {
+    queryParams: {
+    nombre: this.nombre,
+    apellido: this.apellido,
+    nivelEducacion: this.nivelEducacion,
+    fechaNacimiento: this.fechaNacimiento,
+    correo: this.correo,
+    contrasena: this.contrasena
+    }
+});
+}
+
+ocultarCalendario() {
+this.mostrarCalendario = false;
 }
 }

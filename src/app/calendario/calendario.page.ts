@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import googleCalendarPlugin from '@fullcalendar/google-calendar';
+import interactionPlugin from '@fullcalendar/interaction'; 
 
 @Component({
   selector: 'app-calendario',
@@ -10,35 +10,51 @@ import googleCalendarPlugin from '@fullcalendar/google-calendar';
   standalone: false
 })
 export class CalendarioPage implements OnInit {
-  calendarOptions: any;
+  calendarOptions: any; 
+  eventos: any[] = [];
 
   constructor(private router: Router) {}
 
   ngOnInit() {
+    
+    const eventosGuardados = localStorage.getItem('eventosCalendario');
+    if (eventosGuardados) {
+      this.eventos = JSON.parse(eventosGuardados);
+    }
+
+  
     this.calendarOptions = {
-      plugins: [dayGridPlugin, googleCalendarPlugin],
+      plugins: [dayGridPlugin, interactionPlugin],
       initialView: 'dayGridMonth',
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,dayGridWeek'
       },
-      events: {
-        googleCalendarApiKey: 'TU_API_KEY_DE_GOOGLE', 
-        googleCalendarId: 'primary' 
-      },
+      events: this.eventos,
       dateClick: this.handleDateClick.bind(this)
     };
   }
 
+  
   handleDateClick(info: any) {
-    const title = prompt('Título del evento:');
+    const title = prompt('¿Qué deseas agendar para este día?');
     if (title) {
-      alert(`(Simulado) Evento "${title}" creado para ${info.dateStr}`);
+      const nuevoEvento = {
+        title,
+        start: info.dateStr,
+        allDay: true
+      };
+
+      this.eventos.push(nuevoEvento);
+      localStorage.setItem('eventosCalendario', JSON.stringify(this.eventos));
+
       
+      this.calendarOptions.events = [...this.eventos]; 
     }
   }
 
+  
   irAPerfil() {
     this.router.navigate(['/perfil']);
   }
@@ -52,7 +68,6 @@ export class CalendarioPage implements OnInit {
   }
 
   volverLogin() {
-  this.router.navigate(['/login']);
+    this.router.navigate(['/login']);
+  }
 }
-}
-

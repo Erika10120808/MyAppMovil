@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -8,27 +8,24 @@ import { Router } from '@angular/router';
   standalone: false
 })
 export class PerfilPage implements OnInit {
-  nombre = '';
-  apellido = '';
-  nivelEducacion = '';
-  fechaNacimiento = '';
-  correo = '';
-  contrasena = '';
-  modoEditar = false;
-
-  constructor(private router: Router) {}
+  nombre: string = '';
+  apellido: string = '';
+  nivelEducacion: string = '';
+  fechaNacimiento: string = '';
+  correo: string = '';
+  contrasena: string = '';
+  modoEditar: boolean = false;
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    const datos = localStorage.getItem('registroUsuario');
-    if (datos) {
-      const usuario = JSON.parse(datos);
-      this.nombre = usuario.nombre;
-      this.apellido = usuario.apellido;
-      this.nivelEducacion = usuario.nivelEducacion;
-      this.fechaNacimiento = usuario.fechaNacimiento;
-      this.correo = usuario.correo;
-      this.contrasena = usuario.contrasena;
-    }
+    this.route.queryParams.subscribe(params => {
+      this.nombre = params['nombre'] || '';
+      this.apellido = params['apellido'] || '';
+      this.nivelEducacion = params['nivelEducacion'] || '';
+      this.fechaNacimiento = params['fechaNacimiento'] || '';
+      this.correo = params['correo'] || '';
+      this.contrasena = params['contrasena'] || '';
+    });
   }
 
   habilitarEdicion() {
@@ -36,26 +33,21 @@ export class PerfilPage implements OnInit {
   }
 
   guardarCambios() {
-    const datosActualizados = {
-      nombre: this.nombre,
-      apellido: this.apellido,
-      nivelEducacion: this.nivelEducacion,
-      fechaNacimiento: this.fechaNacimiento,
-      correo: this.correo,
-      contrasena: this.contrasena
-    };
-    localStorage.setItem('registroUsuario', JSON.stringify(datosActualizados));
     this.modoEditar = false;
-    alert('Datos actualizados correctamente.');
+    alert('Cambios guardados');
   }
 
   eliminarDatos() {
-    localStorage.removeItem('registroUsuario');
-    this.router.navigate(['/registro']);
+    this.nombre = '';
+    this.apellido = '';
+    this.nivelEducacion = '';
+    this.fechaNacimiento = '';
+    this.correo = '';
+    this.contrasena = '';
   }
 
-  volverLogin() {
-  this.router.navigate(['/login']);
+  volverCalendario() {
+  this.router.navigate(['/calendario']);
 }
 
 }
