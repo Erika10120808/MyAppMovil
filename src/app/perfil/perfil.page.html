@@ -1,0 +1,64 @@
+<ion-header>
+<ion-toolbar>
+<ion-title>Perfil del Usuario</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+<ion-item>
+<ion-label position="floating">Nombre</ion-label>
+<ion-input [(ngModel)]="nombre" [readonly]="!modoEditar"></ion-input>
+</ion-item>
+
+<ion-item>
+<ion-label position="floating">Apellido</ion-label>
+<ion-input [(ngModel)]="apellido" [readonly]="!modoEditar"></ion-input>
+</ion-item>
+
+<ion-item>
+<ion-label>Nivel de Educación</ion-label>
+<ion-select [(ngModel)]="nivelEducacion" [disabled]="!modoEditar">
+    <ion-select-option value="Básica">Básica</ion-select-option>
+    <ion-select-option value="Media">Media</ion-select-option>
+    <ion-select-option value="Superior">Superior</ion-select-option>
+</ion-select>
+</ion-item>
+
+<ion-item>
+<ion-label>Fecha de Nacimiento</ion-label>
+<ion-datetime
+    [(ngModel)]="fechaNacimiento"
+    [disabled]="!modoEditar"
+    display-format="DD/MM/YYYY">
+</ion-datetime>
+</ion-item>
+
+<ion-item>
+<ion-label position="floating">Correo</ion-label>
+<ion-input [(ngModel)]="correo" type="email" [readonly]="!modoEditar"></ion-input>
+</ion-item>
+
+<ion-item>
+<ion-label position="floating">Contraseña</ion-label>
+<ion-input [(ngModel)]="contrasena" type="password" [readonly]="!modoEditar"></ion-input>
+</ion-item>
+
+<ion-button expand="block" color="primary" (click)="habilitarEdicion()" *ngIf="!modoEditar">
+Modificar
+</ion-button>
+
+<ion-button expand="block" color="success" (click)="guardarCambios()" *ngIf="modoEditar">
+Guardar Cambios
+</ion-button>
+
+<ion-button expand="block" color="danger" (click)="eliminarDatos()">
+Eliminar
+</ion-button>
+
+
+<ion-button expand="block" color="medium" (click)="volverLogin()">
+Volver al Login
+</ion-button>
+
+</ion-content>

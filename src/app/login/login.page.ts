@@ -20,21 +20,10 @@ export class LoginPage {
 
   ingresar() {
     if (this.loginForm.valid) {
-      this.router.navigate(['/principal']);
+      this.router.navigate(['/calendario']);
     } else {
       alert('Por favor, completa todos los campos correctamente.');
     }
   }
 
-  irAPerfil() {
-    this.router.navigate(['/perfil']);
-  }
-
-  irAConfiguracion() {
-    this.router.navigate(['/configuracion']);
-  }
-
-  irAHome() {
-    this.router.navigate(['/registro']);
-  }
 }
