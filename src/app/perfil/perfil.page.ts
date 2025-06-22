@@ -4,6 +4,5 @@ import { Component } from '@angular/core';
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',
   
-  standalone: false
 })
 export class PerfilPage {}

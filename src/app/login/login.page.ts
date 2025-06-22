@@ -5,32 +5,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
-  standalone: false
+  styleUrls: ['./login.page.scss']
 })
 export class LoginPage {
   loginForm: FormGroup;
-  usuario: any;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router
-  ) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('\\d{4}'),
-        ],
-      ],
-      correo: [
-        '',
-        [
-          Validators.required,
-          Validators.email
-        ]
-      ],
+      correo: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern('\\d{4}')]]
     });
   }
 
@@ -51,6 +34,6 @@ export class LoginPage {
   }
 
   irAHome() {
-    this.router.navigate(['/registro1']);
+    this.router.navigate(['/registro']);
   }
 }

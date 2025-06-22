@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
 import { IonicModule } from '@ionic/angular';
 
 import { PrincipalPageRoutingModule } from './principal-routing.module';
-
 import { PrincipalPage } from './principal.page';
 
 @NgModule({
@@ -14,8 +13,6 @@ import { PrincipalPage } from './principal.page';
     IonicModule,
     PrincipalPageRoutingModule
   ],
-  declarations: [
-    PrincipalPage
-  ]
+  declarations: [PrincipalPage] 
 })
 export class PrincipalPageModule {}

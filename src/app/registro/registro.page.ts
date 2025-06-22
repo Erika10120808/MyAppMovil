@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 
 @Component({
 selector: 'app-registro1',
-templateUrl: './registro1.page.html',
-styleUrls: ['./registro1.page.scss'],
-standalone: false
+templateUrl: './registro.page.html',
+styleUrls: ['./registro.page.scss'],
+
 })
 export class Registro1Page implements OnInit {
 usuario: string = '';

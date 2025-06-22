@@ -1,47 +1,82 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="titulo-animado">Inicio</ion-title>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
-<div class="botones-header-flotantes">
-  <ion-buttons slot="start">
-    <ion-button color="light" (click)="irAConfiguracion()">Configuración</ion-button>
-    <ion-button color="light" (click)="irAHome()">Home</ion-button>
-  </ion-buttons>
-</div>
 
-<ion-content class="ion-padding">
-  <div class="contenido-centrado">
-    <h2 class="titulo-animado"> Ingresar {{ usuario }}</h2>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-    <form [formGroup]="loginForm" (ngSubmit)="ingresar()" class="contenido-centrado">
-      <ion-item>
-        <ion-label position="floating">Correo</ion-label>
-        <ion-input
-          type="email"
-          formControlName="correo"
-          inputmode="email"
-          autocomplete="email"
-        ></ion-input>
-      </ion-item>
-      <div *ngIf="loginForm.get('correo')?.invalid && (loginForm.get('correo')?.touched || loginForm.get('correo')?.dirty)" class="error-message">
-        <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['required']">El correo es obligatorio.</ion-text>
-        <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['email']">Debe ser un correo válido.</ion-text>
-      </div>
-      
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input
-          type="password"
-          formControlName="password"
-        ></ion-input>
-      </ion-item>
-      <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)" class="error-message">
-        <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</ion-text>
-        <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['pattern']">Debe ser 4 dígitos numéricos.</ion-text>
-      </div>
 
-      <ion-button expand="full" type="submit" [disabled]="loginForm.invalid">Ingresar</ion-button>
-    </form>
+  <div class="logo-container">
+    <img src="assets/imagenes/logo.png" alt="Logo" class="logo-img" />
   </div>
+
+ 
+  <form [formGroup]="loginForm" (ngSubmit)="ingresar()">
+
+    <ion-item>
+      <ion-label position="floating">Correo electrónico</ion-label>
+      <ion-input
+        type="email"
+        formControlName="correo"
+        autocomplete="email">
+      </ion-input>
+    </ion-item>
+
+    <div
+      *ngIf="loginForm.get('correo')?.invalid && (loginForm.get('correo')?.touched || loginForm.get('correo')?.dirty)"
+      class="error-message">
+      <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['required']">
+        El correo es obligatorio.
+      </ion-text>
+      <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['email']">
+        Debe ser un correo válido.
+      </ion-text>
+    </div>
+
+ 
+    <ion-item>
+      <ion-label position="floating">Contraseña (4 dígitos)</ion-label>
+      <ion-input
+        type="password"
+        formControlName="password"
+        maxlength="4"
+        inputmode="numeric">
+      </ion-input>
+    </ion-item>
+
+    <div
+      *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)"
+      class="error-message">
+      <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">
+        La contraseña es obligatoria.
+      </ion-text>
+      <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['pattern']">
+        Debe ser 4 dígitos numéricos.
+      </ion-text>
+    </div>
+
+    
+    <ion-button
+      expand="block"
+      type="submit"
+      [disabled]="loginForm.invalid">
+      Ingresar
+    </ion-button>
+
+  </form>
+
+  
+  <ion-button expand="full" fill="clear" (click)="irAPerfil()">
+    Ir a Perfil
+  </ion-button>
+
+  <ion-button expand="full" fill="clear" (click)="irAConfiguracion()">
+    Ir a Configuración
+  </ion-button>
+
+  <ion-button expand="full" fill="clear" (click)="irAHome()">
+    Ir a Registro
+  </ion-button>
+
 </ion-content>

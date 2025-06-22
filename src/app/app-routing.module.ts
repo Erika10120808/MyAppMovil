@@ -24,8 +24,8 @@ const routes: Routes = [
 
   
   {
-    path: 'registro1',
-    loadChildren: () => import('./registro1/registro1.module').then( m => m.Registro1PageModule)
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
 
 ];
