@@ -6,78 +6,68 @@
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
-
+ 
   <div class="logo-container">
-  <img src="assets\imagenes\aa8cd491-a400-4d12-9420-9a5b2e45da29.png" 
-  alt="Company logo featuring a stylized blue and green abstract shape centered on a white background, conveying a modern and welcoming atmosphere. No visible text." 
-  class="logo-img" />
-</div>
- 
-  <form [formGroup]="loginForm" (ngSubmit)="ingresar()">
-
-    <ion-item>
-      <ion-label position="floating">Correo electrónico</ion-label>
-      <ion-input
-        type="email"
-        formControlName="correo"
-        autocomplete="email">
-      </ion-input>
-    </ion-item>
-
-    <div
-      *ngIf="loginForm.get('correo')?.invalid && (loginForm.get('correo')?.touched || loginForm.get('correo')?.dirty)"
-      class="error-message">
-      <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['required']">
-        El correo es obligatorio.
-      </ion-text>
-      <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['email']">
-        Debe ser un correo válido.
-      </ion-text>
-    </div>
+    <img src="assets/imagenes/aa8cd491-a400-4d12-9420-9a5b2e45da29.png"
+        alt="Company logo"
+        class="logo-img" />
+  </div>
 
  
-    <ion-item>
-      <ion-label position="floating">Contraseña (4 dígitos)</ion-label>
-      <ion-input
-        type="password"
-        formControlName="password"
-        maxlength="4"
-        inputmode="numeric">
-      </ion-input>
-    </ion-item>
+  <div class="contenido-centrado">
+    <form [formGroup]="loginForm" (ngSubmit)="ingresar()">
 
-    <div
-      *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)"
-      class="error-message">
-      <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">
-        La contraseña es obligatoria.
-      </ion-text>
-      <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['pattern']">
-        Debe ser 4 dígitos numéricos.
-      </ion-text>
-    </div>
+     
+      <ion-item>
+        <ion-label position="floating">Correo electrónico</ion-label>
+        <ion-input
+          type="email"
+          formControlName="correo"
+          autocomplete="email">
+        </ion-input>
+      </ion-item>
 
-    
-    <ion-button
-      expand="block"
-      type="submit"
-      [disabled]="loginForm.invalid">
-      Ingresar
-    </ion-button>
+      <div *ngIf="loginForm.get('correo')?.invalid && (loginForm.get('correo')?.touched || loginForm.get('correo')?.dirty)"
+          class="error-message">
+        <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['required']">
+          El correo es obligatorio.
+        </ion-text>
+        <ion-text color="danger" *ngIf="loginForm.get('correo')?.errors?.['email']">
+          Debe ser un correo válido.
+        </ion-text>
+      </div>
 
-  </form>
+     
+      <ion-item>
+        <ion-label position="floating">Contraseña (4 dígitos)</ion-label>
+        <ion-input
+          type="password"
+          formControlName="password"
+          maxlength="4"
+          inputmode="numeric">
+        </ion-input>
+      </ion-item>
 
-  
-  <ion-button expand="full" fill="clear" (click)="irAPerfil()">
-    Ir a Perfil
-  </ion-button>
+      <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)"
+          class="error-message">
+        <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['required']">
+          La contraseña es obligatoria.
+        </ion-text>
+        <ion-text color="danger" *ngIf="loginForm.get('password')?.errors?.['pattern']">
+          Debe ser 4 dígitos numéricos.
+        </ion-text>
+      </div>
 
-  <ion-button expand="full" fill="clear" (click)="irAConfiguracion()">
-    Ir a Configuración
-  </ion-button>
+      
+      <ion-button class="btn-custom" expand="block" type="submit" [disabled]="loginForm.invalid">
+  Ingresar
+</ion-button>
+    </form>
 
-  <ion-button expand="full" fill="clear" (click)="irAHome()">
-    Ir a Registro
-  </ion-button>
+
+    <ion-button expand="block" (click)="irAPerfil()">Perfil</ion-button>
+    <ion-button expand="block" (click)="irAConfiguracion()">Configuración</ion-button>
+    <ion-button expand="block" (click)="irAHome()">Registro</ion-button>
+  </div>
 
 </ion-content>

@@ -1,10 +1,19 @@
+
+body, html {
+height: 100%;
+margin: 0;
+}
+
+
 .contenido-centrado {
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: flex-start; 
 align-items: center;
-height: 100%;
+padding-top: 40px;
 text-align: center;
+}
+
 
 ion-item {
 width: 80%;
@@ -12,18 +21,32 @@ max-width: 350px;
 margin-bottom: 12px;
 }
 
-ion-button {
---background: #007bff;
---color: white;
+
+ion-button, ion-button[color] {
+--background: black;
+--color: gold;
+font-weight: bold;
 width: 80%;
 max-width: 300px;
 margin-top: 10px;
+--border-radius: 12px;
+display: block;
 }
 
-ion-button[color="medium"] {
---background: #6c757d;
+
+.logo-container {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
 }
+
+.logo-img {
+width: 120px;
+height: auto;
+border-radius: 20px;
 }
+
 
 .titulo-animado {
 animation: fadeIn 1s ease-out;
@@ -39,6 +62,7 @@ opacity: 1;
 transform: translateY(0);
 }
 }
+
 
 .botones-header {
 background: #b3e0ff;
@@ -56,7 +80,19 @@ display: flex;
 justify-content: flex-start;
 gap: 8px;
 margin: 12px 0 20px 0;
-box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 position: relative;
 z-index: 10;
+}
+
+.btn-custom {
+--background: black;
+--color: gold;
+font-weight: bold;
+width: 80%;
+max-width: 300px;
+margin-top: 10px;
+--border-radius: 12px;
+display: block;
+text-transform: uppercase;
 }
