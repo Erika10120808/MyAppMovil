@@ -20,8 +20,8 @@ export class ConfiguracionPage {
     this.router.navigate(['/login']);
   }
 
-  volverLogin() {
-    this.router.navigate(['/login']);
+  volverACalendario() {
+    this.router.navigate(['/calendario']);
   }
 
   irACalendario() {

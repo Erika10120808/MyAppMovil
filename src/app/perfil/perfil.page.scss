@@ -1,0 +1,55 @@
+.fondo-blanco {
+background-color: #fff;
+}
+
+.logo-header {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+object-fit: cover;
+margin-left: 12px;
+}
+
+.titulo-dorado,
+.texto-dorado {
+color: #d4af37;
+font-weight: bold;
+}
+
+.icono-dorado {
+color: #d4af37;
+font-size: 20px;
+}
+
+.texto-contraste {
+font-weight: bold;
+}
+
+.icono-contraste {
+color: #000;
+font-size: 20px;
+}
+
+ion-toolbar[color="dark"] {
+--background: #000;
+--color: #d4af37;
+ion-title,
+ion-icon,
+ion-buttons {
+color: #d4af37;
+}
+}
+
+ion-button[color="dark"] {
+--background: #000;
+--color: #d4af37;
+--border-color: #d4af37;
+border: 1px solid #d4af37;
+}
+
+ion-button[color="golden"] {
+--background: #d4af37;
+--color: #000;
+--border-color: #000;
+border: 1px solid #000;
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -15,17 +15,20 @@ export class PerfilPage implements OnInit {
   correo: string = '';
   contrasena: string = '';
   modoEditar: boolean = false;
-  constructor(private route: ActivatedRoute, private router: Router) {}
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.nombre = params['nombre'] || '';
-      this.apellido = params['apellido'] || '';
-      this.nivelEducacion = params['nivelEducacion'] || '';
-      this.fechaNacimiento = params['fechaNacimiento'] || '';
-      this.correo = params['correo'] || '';
-      this.contrasena = params['contrasena'] || '';
-    });
+    const datos = localStorage.getItem('datosUsuario');
+    if (datos) {
+      const usuario = JSON.parse(datos);
+      this.nombre = usuario.nombre || '';
+      this.apellido = usuario.apellido || '';
+      this.nivelEducacion = usuario.nivelEducacion || '';
+      this.fechaNacimiento = usuario.fechaNacimiento || '';
+      this.correo = usuario.correo || '';
+      this.contrasena = usuario.contrasena || '';
+    }
   }
 
   habilitarEdicion() {
@@ -34,7 +37,17 @@ export class PerfilPage implements OnInit {
 
   guardarCambios() {
     this.modoEditar = false;
-    alert('Cambios guardados');
+
+    const datosUsuario = {
+      nombre: this.nombre,
+      apellido: this.apellido,
+      nivelEducacion: this.nivelEducacion,
+      fechaNacimiento: this.fechaNacimiento,
+      correo: this.correo,
+      contrasena: this.contrasena
+    };
+    localStorage.setItem('datosUsuario', JSON.stringify(datosUsuario));
+    alert('Datos guardados exitosamente');
   }
 
   eliminarDatos() {
@@ -44,10 +57,11 @@ export class PerfilPage implements OnInit {
     this.fechaNacimiento = '';
     this.correo = '';
     this.contrasena = '';
+    localStorage.removeItem('datosUsuario');
+    alert('Datos eliminados');
   }
 
   volverCalendario() {
-  this.router.navigate(['/calendario']);
-}
-
+    this.router.navigate(['/calendario']);
+  }
 }

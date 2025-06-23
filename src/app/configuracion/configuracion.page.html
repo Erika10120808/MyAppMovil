@@ -1,33 +1,3 @@
-<ion-menu contentId="main-content" type="overlay">
-  <ion-header>
-    <ion-toolbar color="dark">
-      <ion-title class="titulo-dorado">
-        <ion-icon name="menu-outline" slot="start"></ion-icon>
-        Menú
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content class="ion-padding fondo-blanco">
-    <ion-list>
-      <ion-item button [routerLink]="['/perfil']">
-        <ion-icon name="person-outline" slot="start" class="icono-dorado"></ion-icon>
-        <ion-label class="texto-dorado">Perfil</ion-label>
-      </ion-item>
-
-      <ion-item button [routerLink]="['/configuracion']">
-        <ion-icon name="settings-outline" slot="start" class="icono-dorado"></ion-icon>
-        <ion-label class="texto-dorado">Configuración</ion-label>
-      </ion-item>
-
-      <ion-item button [routerLink]="['/registro']">
-        <ion-icon name="person-add-outline" slot="start" class="icono-dorado"></ion-icon>
-        <ion-label class="texto-dorado">Regístrate</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
 <div class="ion-page" id="main-content">
   <ion-header [translucent]="true">
     <ion-toolbar color="dark">
@@ -63,9 +33,9 @@
           Acceder a funcionalidades
         </ion-button>
 
-        <ion-button expand="block" color="dark" (click)="volverLogin()">
-          <ion-icon name="home-outline" slot="start"></ion-icon>
-          <span class="texto-dorado">Volver al inicio</span>
+        <ion-button expand="block" color="dark" (click)="volverACalendario()">
+          <ion-icon name="calendar" slot="start"></ion-icon>
+          <span class="texto-dorado">Volver al Calendario</span>
         </ion-button>
       </ion-card-content>
     </ion-card>

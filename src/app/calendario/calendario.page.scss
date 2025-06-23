@@ -1,7 +1,49 @@
 .logo-header {
-width: 32px;
-height: 32px;
+width: 40px;
+height: 40px;
 border-radius: 50%;
 object-fit: cover;
-margin-right: 8px;
+margin: 0 auto;
+display: block;
+padding-top: 4px;
+}
+
+.toolbar-center {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.titulo-dorado,
+.texto-dorado {
+color: #d4af37;
+font-weight: bold;
+}
+
+.icono-dorado {
+color: #d4af37;
+font-size: 20px;
+}
+
+.fondo-blanco {
+--ion-background-color: #fff;
+background-color: #fff;
+}
+
+ion-toolbar[color="dark"] {
+--background: #000;
+--color: #d4af37;
+}
+
+ion-button[color="dark"] {
+--background: #000;
+--color: #d4af37;
+--border-color: #d4af37;
+border: 1px solid #d4af37;
+margin-bottom: 12px;
+}
+
+.botones-container {
+margin-top: 20px;
 }

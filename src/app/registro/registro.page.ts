@@ -1,84 +1,84 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
 selector: 'app-registro',
 templateUrl: './registro.page.html',
 styleUrls: ['./registro.page.scss'],
-standalone: false
+standalone: false,
 })
 export class RegistroPage implements OnInit {
-usuario: string = '';
-nombre: string = '';
-apellido: string = '';
-nivelEducacion: string = '';
-fechaNacimiento: any = '';
-correo: string = '';
-contrasena: string = '';
-mostrarCalendario: boolean = false;
+nombre = '';
+apellido = '';
+nivelEducacion = '';
+fechaNacimiento: string = '';
+correo = '';
+contrasena = '';
+mostrarCalendario = false;
 
-constructor(private route: ActivatedRoute, private router: Router) {}
+constructor(private router: Router) {}
 
-ngOnInit() {
-this.route.queryParams.subscribe(params => {
-    if (params['usuario']) {
-    this.usuario = params['usuario'];
-    }
-});
+ngOnInit(): void {
+
 }
 
-mostrar() {
+mostrarDatos(): void {
 alert(
-    `Nombre: ${this.nombre}\nApellido: ${this.apellido}\nEducación: ${this.nivelEducacion}\nFecha de Nacimiento: ${this.fechaNacimiento}`
+`Nombre: ${this.nombre}\nApellido: ${this.apellido}\nNivel: ${this.nivelEducacion}\nNacimiento: ${this.fechaNacimiento}\nCorreo: ${this.correo}`
 );
 }
 
-limpiar() {
+limpiarCampos(): void {
 this.nombre = '';
 this.apellido = '';
 this.nivelEducacion = '';
 this.fechaNacimiento = '';
 this.correo = '';
 this.contrasena = '';
-
-const nombreInput = document.querySelector('#nombreInput');
-const apellidoInput = document.querySelector('#apellidoInput');
-
-if (nombreInput) {
-    nombreInput.classList.remove('animate-input');
-    void (nombreInput as HTMLElement).offsetWidth;
-    nombreInput.classList.add('animate-input');
-}
-if (apellidoInput) {
-    apellidoInput.classList.remove('animate-input');
-    void (apellidoInput as HTMLElement).offsetWidth;
-    apellidoInput.classList.add('animate-input');
-}
 }
 
-irALogin() {
-this.router.navigate(['/login']);
+ocultarCalendario(): void {
+this.mostrarCalendario = false;
 }
 
-irARegistro() {
-this.router.navigate(['/registro']);
-}
-
-irACalendario() {
-
-this.router.navigate(['/perfil'], {
-    queryParams: {
+guardarYIrAPerfil(): void {
+const datosUsuario = {
     nombre: this.nombre,
     apellido: this.apellido,
     nivelEducacion: this.nivelEducacion,
     fechaNacimiento: this.fechaNacimiento,
     correo: this.correo,
     contrasena: this.contrasena
-    }
-});
+};
+
+localStorage.setItem('datosUsuario', JSON.stringify(datosUsuario));
+this.router.navigate(['/perfil']);
 }
 
-ocultarCalendario() {
-this.mostrarCalendario = false;
+
+volverALogin(): void {
+this.router.navigate(['/login']);
+}
+
+irALogin(): void {
+this.router.navigate(['/login']);
+}
+
+mostrar(): void {
+alert(
+`Nombre: ${this.nombre}\nApellido: ${this.apellido}\nNivel de Educación: ${this.nivelEducacion}\nFecha de Nacimiento: ${this.fechaNacimiento}\nCorreo: ${this.correo}`
+);
+}
+
+limpiar(): void {
+this.nombre = '';
+this.apellido = '';
+this.nivelEducacion = '';
+this.fechaNacimiento = '';
+this.correo = '';
+this.contrasena = '';
+}
+mostrarCalendarioFunc(): void {
+this.mostrarCalendario = true;
 }
 }

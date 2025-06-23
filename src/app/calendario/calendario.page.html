@@ -1,44 +1,45 @@
-<ion-menu contentId="main-content" type="overlay">
-  <ion-header>
+<ion-header [translucent]="true">
+  <ion-toolbar color="black">
+    <ion-buttons slot="start">
+      <ion-menu-button class="icono-dorado"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="titulo-negro">
+      Agenda
+    </ion-title>
+    <ion-buttons slot="end">
+      <img
+        src="assets/imagenes/aa8cd491-a400-4d12-9420-9a5b2e45da29.png"
+        class="logo-header"
+        alt="Company logo featuring a stylized golden calendar icon on a black background"
+      />
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding fondo-blanco">
+  <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title>Menú</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">
-    <ion-item button [routerLink]="['/perfil']">Perfil</ion-item>
-    <ion-item button [routerLink]="['/configuracion']">Configuración</ion-item>
-    <ion-item button [routerLink]="['/registro']">Registrate</ion-item>
-  </ion-content>
-</ion-menu>
-
-
-<div class="ion-page" id="main-content">
-
-  
-  <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Agenda</ion-title>
-      <ion-buttons slot="end">
-        <img src="assets/imagenes/aa8cd491-a400-4d12-9420-9a5b2e45da29.png" class="logo-header" alt="Logo" />
-      </ion-buttons>
+      <ion-title size="default" class="titulo-dorado">Calendario</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  
-  <ion-content [fullscreen]="true" class="ion-padding">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="default">Calendario</ion-title>
-      </ion-toolbar>
-    </ion-header>
+  <full-calendar [options]="calendarOptions"></full-calendar>
 
-    <full-calendar [options]="calendarOptions"></full-calendar>
-
-    <ion-button expand="block" color="medium" (click)="volverLogin()">
-      Volver al inicio
+  <div class="botones-container">
+    <ion-button expand="block" color="dark" (click)="navegarA('/perfil')">
+      <ion-icon name="person-outline" slot="start" class="icono-dorado"></ion-icon>
+      <span class="texto-dorado">Ir a Perfil</span>
     </ion-button>
-  </ion-content>
-</div>
+
+    <ion-button expand="block" color="dark" (click)="navegarA('/configuracion')">
+      <ion-icon name="settings-outline" slot="start" class="icono-dorado"></ion-icon>
+      <span class="texto-dorado">Ir a Configuración</span>
+    </ion-button>
+
+    <ion-button expand="block" color="dark" (click)="navegarA('/login')">
+      <ion-icon name="home-outline" slot="start" class="icono-dorado"></ion-icon>
+      <span class="texto-dorado">Volver al inicio</span>
+    </ion-button>
+  </div>
+</ion-content>

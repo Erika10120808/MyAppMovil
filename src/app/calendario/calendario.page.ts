@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction'; 
+import interactionPlugin from '@fullcalendar/interaction';
 
 @Component({
   selector: 'app-calendario',
@@ -10,19 +11,17 @@ import interactionPlugin from '@fullcalendar/interaction';
   standalone: false
 })
 export class CalendarioPage implements OnInit {
-  calendarOptions: any; 
+  calendarOptions: any;
   eventos: any[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private menuCtrl: MenuController, private router: Router) {}
 
   ngOnInit() {
-    
     const eventosGuardados = localStorage.getItem('eventosCalendario');
     if (eventosGuardados) {
       this.eventos = JSON.parse(eventosGuardados);
     }
 
-  
     this.calendarOptions = {
       plugins: [dayGridPlugin, interactionPlugin],
       initialView: 'dayGridMonth',
@@ -36,7 +35,6 @@ export class CalendarioPage implements OnInit {
     };
   }
 
-  
   handleDateClick(info: any) {
     const title = prompt('¿Qué deseas agendar para este día?');
     if (title) {
@@ -45,29 +43,15 @@ export class CalendarioPage implements OnInit {
         start: info.dateStr,
         allDay: true
       };
-
       this.eventos.push(nuevoEvento);
       localStorage.setItem('eventosCalendario', JSON.stringify(this.eventos));
-
-      
-      this.calendarOptions.events = [...this.eventos]; 
+      this.calendarOptions.events = [...this.eventos];
     }
   }
 
-  
-  irAPerfil() {
-    this.router.navigate(['/perfil']);
-  }
-
-  irAConfiguracion() {
-    this.router.navigate(['/configuracion']);
-  }
-
-  irAHome() {
-    this.router.navigate(['/registro']);
-  }
-
-  volverLogin() {
-    this.router.navigate(['/login']);
+  async navegarA(ruta: string) {
+    await this.menuCtrl.close();
+    (document.activeElement as HTMLElement)?.blur(); 
+    this.router.navigate([ruta]);
   }
 }
