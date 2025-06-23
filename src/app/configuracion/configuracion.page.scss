@@ -1,0 +1,29 @@
+:root {
+--color-dorado: #d4af37;
+--fondo-negro: #000;
+--fondo-blanco: #fff;
+}
+
+.titulo-dorado,
+.texto-dorado {
+color: var(--color-dorado);
+font-weight: bold;
+}
+
+.icono-dorado {
+color: var(--color-dorado);
+}
+
+.fondo-blanco {
+--ion-background-color: var(--fondo-blanco);
+background-color: var(--fondo-blanco);
+}
+
+ion-toolbar[color="dark"] {
+--background: var(--fondo-negro);
+}
+
+.tarjeta-config {
+border: 1px solid var(--color-dorado);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}

@@ -96,3 +96,18 @@ margin-top: 10px;
 display: block;
 text-transform: uppercase;
 }
+
+.fondo-oscuro {
+--background: #000000;
+color: gold;
+}
+
+.titulo-dorado {
+color: gold;
+font-weight: bold;
+}
+
+.tarjeta-config {
+--background: #1a1a1a;
+color: gold;
+}

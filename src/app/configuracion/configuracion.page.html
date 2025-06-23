@@ -1,15 +1,74 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>configuracion</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Configuración</ion-title>
+<ion-menu contentId="main-content" type="overlay">
+ <ion-menu contentId="main-content" type="overlay">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-title class="titulo-dorado">
+        <ion-icon name="menu-outline" slot="start"></ion-icon>
+        Menú
+      </ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-button expand="block" color="secondary" (click)="irALogin()">Login</ion-button>
-</ion-content>
+  <ion-content class="ion-padding fondo-blanco">
+    <ion-list>
+      <ion-item button [routerLink]="['/perfil']">
+        <ion-icon name="person-outline" slot="start" class="icono-dorado"></ion-icon>
+        <ion-label class="texto-dorado">Perfil</ion-label>
+      </ion-item>
+
+      <ion-item button [routerLink]="['/configuracion']">
+        <ion-icon name="settings-outline" slot="start" class="icono-dorado"></ion-icon>
+        <ion-label class="texto-dorado">Configuración</ion-label>
+      </ion-item>
+
+      <ion-item button [routerLink]="['/registro']">
+        <ion-icon name="person-add-outline" slot="start" class="icono-dorado"></ion-icon>
+        <ion-label class="texto-dorado">Regístrate</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header [translucent]="true">
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-menu-button class="icono-dorado"></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="titulo-dorado">
+        <ion-icon name="settings-outline" slot="start"></ion-icon>
+        Configuración
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true" class="ion-padding fondo-blanco">
+    <ion-card class="tarjeta-config">
+      <ion-card-header>
+        <ion-card-title class="titulo-dorado">Opciones</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-button expand="block" color="warning" fill="outline" (click)="solicitarPermisoUbicacion()">
+          <ion-icon name="location-outline" slot="start"></ion-icon>
+          Permitir ubicación
+        </ion-button>
+
+        <ion-button expand="block" color="warning" fill="outline" (click)="solicitarNotificaciones()">
+          <ion-icon name="notifications-outline" slot="start"></ion-icon>
+          Permitir notificaciones
+        </ion-button>
+
+        <ion-button expand="block" color="warning" fill="outline" (click)="usarDispositivo()">
+          <ion-icon name="hardware-chip-outline" slot="start"></ion-icon>
+          Acceder a funcionalidades
+        </ion-button>
+
+        <ion-button expand="block" color="dark" (click)="volverLogin()">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <span class="texto-dorado">Volver al inicio</span>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</div>
