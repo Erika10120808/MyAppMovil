@@ -10,10 +10,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { DatabaseService } from './services/database.service';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync(), SQLite, DatabaseService],
   bootstrap: [AppComponent],
+  
 })
 export class AppModule {}

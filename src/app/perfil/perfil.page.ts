@@ -14,6 +14,7 @@ export class PerfilPage implements OnInit {
   fechaNacimiento: string = '';
   correo: string = '';
   contrasena: string = '';
+  fotoPerfil: string | null = null;
   modoEditar: boolean = false;
 
   constructor(private router: Router) {}
@@ -28,6 +29,7 @@ export class PerfilPage implements OnInit {
       this.fechaNacimiento = usuario.fechaNacimiento || '';
       this.correo = usuario.correo || '';
       this.contrasena = usuario.contrasena || '';
+      this.fotoPerfil = usuario.fotoPerfil || null;
     }
   }
 
@@ -44,7 +46,8 @@ export class PerfilPage implements OnInit {
       nivelEducacion: this.nivelEducacion,
       fechaNacimiento: this.fechaNacimiento,
       correo: this.correo,
-      contrasena: this.contrasena
+      contrasena: this.contrasena,
+      fotoPerfil: this.fotoPerfil
     };
     localStorage.setItem('datosUsuario', JSON.stringify(datosUsuario));
     alert('Datos guardados exitosamente');
@@ -57,6 +60,7 @@ export class PerfilPage implements OnInit {
     this.fechaNacimiento = '';
     this.correo = '';
     this.contrasena = '';
+    this.fotoPerfil = null;
     localStorage.removeItem('datosUsuario');
     alert('Datos eliminados');
   }

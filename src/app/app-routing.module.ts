@@ -27,6 +27,14 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilPageModule)
+  },
+  {
+    path: 'api',
+    loadChildren: () => import('./pages/api/api.module').then( m => m.ApiPageModule)
+  },
+  {
+    path: 'camara',
+    loadChildren: () => import('./pages/camara/camara.module').then( m => m.CamaraPageModule)
   }
 ];
 

@@ -12,6 +12,13 @@
 
 <ion-content class="ion-padding fondo-blanco">
 
+<div class="perfil-container">
+<ion-avatar class="avatar-perfil" *ngIf="fotoPerfil">
+    <img [src]="fotoPerfil">
+</ion-avatar>
+<p class="texto-foto" *ngIf="!fotoPerfil">No se ha definido una foto de perfil</p>
+</div>
+
 <ion-item>
 <ion-label position="floating">Nombre</ion-label>
 <ion-input [(ngModel)]="nombre" [readonly]="!modoEditar"></ion-input>
@@ -70,4 +77,3 @@ Eliminar
 </ion-button>
 
 </ion-content>
-

@@ -2,7 +2,7 @@
   <ion-header [translucent]="true">
     <ion-toolbar color="dark">
       <ion-buttons slot="start">
-        <ion-menu-button class="icono-dorado"></ion-menu-button>
+        <img src="assets/imagenes/aa8cd491-a400-4d12-9420-9a5b2e45da29.png" class="logo-header" alt="Logo" />
       </ion-buttons>
       <ion-title class="titulo-dorado">
         <ion-icon name="settings-outline" slot="start"></ion-icon>
@@ -14,24 +14,27 @@
   <ion-content [fullscreen]="true" class="ion-padding fondo-blanco">
     <ion-card class="tarjeta-config">
       <ion-card-header>
-        <ion-card-title class="titulo-dorado">Opciones</ion-card-title>
+        <ion-card-title class="titulo-dorado">Permisos de la App</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
-        <ion-button expand="block" color="warning" fill="outline" (click)="solicitarPermisoUbicacion()">
-          <ion-icon name="location-outline" slot="start"></ion-icon>
-          Permitir ubicación
-        </ion-button>
+        <ion-item>
+          <ion-icon name="location-outline" slot="start" class="icono-dorado"></ion-icon>
+          <ion-label>Ubicación</ion-label>
+          <ion-toggle [(ngModel)]="ubicacionActiva" (ionChange)="solicitarPermisoUbicacion()"></ion-toggle>
+        </ion-item>
 
-        <ion-button expand="block" color="warning" fill="outline" (click)="solicitarNotificaciones()">
-          <ion-icon name="notifications-outline" slot="start"></ion-icon>
-          Permitir notificaciones
-        </ion-button>
+        <ion-item>
+          <ion-icon name="notifications-outline" slot="start" class="icono-dorado"></ion-icon>
+          <ion-label>Notificaciones</ion-label>
+          <ion-toggle [(ngModel)]="notificacionesActivas" (ionChange)="solicitarNotificaciones()"></ion-toggle>
+        </ion-item>
 
-        <ion-button expand="block" color="warning" fill="outline" (click)="usarDispositivo()">
-          <ion-icon name="hardware-chip-outline" slot="start"></ion-icon>
-          Acceder a funcionalidades
-        </ion-button>
+        <ion-item>
+          <ion-icon name="hardware-chip-outline" slot="start" class="icono-dorado"></ion-icon>
+          <ion-label>Funcionalidades del dispositivo</ion-label>
+          <ion-toggle [(ngModel)]="dispositivoActivo" (ionChange)="usarDispositivo()"></ion-toggle>
+        </ion-item>
 
         <ion-button expand="block" color="dark" (click)="volverACalendario()">
           <ion-icon name="calendar" slot="start"></ion-icon>

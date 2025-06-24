@@ -111,3 +111,23 @@ font-weight: bold;
 --background: #1a1a1a;
 color: gold;
 }
+
+.boton-api {
+--background: transparent;
+--color: black;
+--border: 2px solid gold;
+--border-radius: 12px;
+--box-shadow: 0 0 10px gold;
+--padding-start: 12px;
+--padding-end: 12px;
+--padding-top: 10px;
+--padding-bottom: 10px;
+font-weight: bold;
+font-size: 16px;
+}
+
+.boton-api ion-icon {
+color: gold;
+font-size: 22px;
+margin-right: 8px;
+}

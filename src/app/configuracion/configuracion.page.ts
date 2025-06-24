@@ -8,60 +8,51 @@ import { Router } from '@angular/router';
   standalone: false
 })
 export class ConfiguracionPage {
-  calendarOptions: any = {
-    initialView: 'dayGridMonth',
-    plugins: [],
-    events: []
-  };
+  ubicacionActiva: boolean = false;
+  notificacionesActivas: boolean = false;
+  dispositivoActivo: boolean = false;
 
   constructor(private router: Router) {}
-
-  irALogin() {
-    this.router.navigate(['/login']);
-  }
 
   volverACalendario() {
     this.router.navigate(['/calendario']);
   }
 
-  irACalendario() {
-    this.router.navigate(['/calendario']);
-  }
-
   async solicitarPermisoUbicacion() {
-    if ('geolocation' in navigator) {
+    if (this.ubicacionActiva && 'geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           alert(`Ubicación actual:\nLat: ${position.coords.latitude}\nLng: ${position.coords.longitude}`);
         },
         (error) => {
           alert('Permiso denegado o error al obtener ubicación');
+          this.ubicacionActiva = false;
         }
       );
-    } else {
-      alert('Tu dispositivo no soporta geolocalización');
     }
   }
 
   async solicitarNotificaciones() {
-    if ('Notification' in window) {
+    if (this.notificacionesActivas && 'Notification' in window) {
       const permiso = await Notification.requestPermission();
       if (permiso === 'granted') {
         new Notification('¡Notificaciones activadas!');
       } else {
         alert('Permiso de notificaciones denegado');
+        this.notificacionesActivas = false;
       }
-    } else {
-      alert('Tu navegador no soporta notificaciones');
     }
   }
 
   usarDispositivo() {
-    if ('vibrate' in navigator) {
+    if (this.dispositivoActivo && 'vibrate' in navigator) {
       navigator.vibrate(200);
-      alert('Vibración activada por 200ms (simulación de funcionalidad)');
+      alert('Vibración activada por 200ms (simulación)');
+    } else if (!this.dispositivoActivo) {
+      alert('Funcionalidad desactivada');
     } else {
       alert('Tu dispositivo no permite esta funcionalidad');
+      this.dispositivoActivo = false;
     }
   }
 }
