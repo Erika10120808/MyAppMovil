@@ -1,0 +1,33 @@
+.api-container {
+padding: 16px;
+
+ion-card {
+margin-bottom: 16px;
+}
+
+.formulario-post {
+display: flex;
+flex-direction: column;
+gap: 10px;
+
+ion-input,
+ion-textarea {
+    width: 100%;
+}
+
+ion-button {
+    align-self: flex-end;
+}
+}
+
+@media (min-width: 768px) {
+.formulario-post {
+    flex-direction: row;
+    align-items: center;
+    ion-input,
+    ion-textarea {
+    flex: 1;
+    }
+}
+}
+}

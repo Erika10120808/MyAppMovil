@@ -19,38 +19,64 @@ export class ApiPage implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.cargarPosts();
   }
 
-  cargarPosts() {
-    this.apiService.getPosts().subscribe(data => {
-      this.posts = data.slice(0, 5); 
+ 
+  cargarPosts(): void {
+    this.apiService.getPosts().subscribe({
+      next: data => {
+        this.posts = data.slice(0, 5);
+      },
+      error: err => {
+        alert(' Error al cargar publicaciones: ' + err.message);
+      }
     });
   }
 
-  agregarPost() {
+ 
+  agregarPost(): void {
     const nuevoPost = {
-      title: this.nuevoTitulo,
-      body: this.nuevoContenido,
+      title: this.nuevoTitulo.trim(),
+      body: this.nuevoContenido.trim(),
       userId: 1
     };
 
-    this.apiService.addPost(nuevoPost).subscribe(post => {
-      this.posts.unshift(post); 
-      this.nuevoTitulo = '';
-      this.nuevoContenido = '';
+    if (!nuevoPost.title || !nuevoPost.body) {
+      alert(' Debes completar el título y el contenido');
+      return;
+    }
+
+    this.apiService.addPost(nuevoPost).subscribe({
+      next: post => {
+        this.posts.unshift(post);
+        this.nuevoTitulo = '';
+        this.nuevoContenido = '';
+        alert(' Post agregado correctamente');
+      },
+      error: err => {
+        alert(' Error al agregar post: ' + err.message);
+      }
     });
   }
 
-  eliminarPost(id: number) {
-    this.apiService.deletePost(id).subscribe(() => {
-      this.posts = this.posts.filter(p => p.id !== id);
-    });
+  eliminarPost(id: number): void {
+    if (confirm('¿Estás seguro de eliminar esta publicación?')) {
+      this.apiService.deletePost(id).subscribe({
+        next: () => {
+          this.posts = this.posts.filter(p => p.id !== id);
+          alert(' Post eliminado');
+        },
+        error: err => {
+          alert(' Error al eliminar post: ' + err.message);
+        }
+      });
+    }
   }
 
-  volverALogin() {
+
+  volverALogin(): void {
     this.router.navigate(['/login']);
   }
 }
-
