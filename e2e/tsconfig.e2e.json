@@ -1,0 +1,11 @@
+{
+"compilerOptions": {
+"outDir": "./out-tsc",
+"baseUrl": "../",
+"module": "commonjs",
+"target": "es2017",
+"types": ["jasmine", "node"]
+},
+"include": ["**/*.ts"],
+"exclude": ["out-tsc"]
+}
