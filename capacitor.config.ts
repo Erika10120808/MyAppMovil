@@ -1,9 +1,9 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'MyAppMovil',
-  webDir: 'www'
+  appId: 'com.erika.madresconectadas',
+  appName: 'MadresConectadas2.0',
+  webDir: 'www',
 };
 
 export default config;

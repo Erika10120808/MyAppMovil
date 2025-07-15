@@ -1,0 +1,110 @@
+**** COMANDOS ****
+
+1)
+instalar dependencias:
+npm install @capacitor/core @capacitor/cli
+
+2)
+generar archivos del proyecto:
+ionic build --prod
+[el parametro --prod construye el proyecto de forma optimizada pensada para la producción o version final]
+
+3)
+construir proyecto android:
+ionic cap add android
+
+En caso de:
+[ERROR] The android platform is already installed! 
+Significa que la carpeta android ya esta generada, continuar con el siguiente comando
+
+4)
+Sincronizar cambios del proyecto ionic en la carpeta android:
+ionic cap sync android
+
+5)
+Generar APK:
+
+5A)
+ir al directorio android con:
+cd android
+
+5B)
+Generar apk con:
+./gradlew assembleRelease
+
+el archivo generado quedara dentro de la carpeta android en: app/build/outputs/apk/release/app-release-unsigned.apk
+
+6)
+Firmar apk:
+
+6A)
+Ir al directorio raiz del proyecto y crear clave:
+cd..
+keytool -genkey -v -keystore mi_llave.jks -keyalg RSA -keysize 2048 -validity 10000 -alias mi_llave
+keytool -genkey -v -keystore nextbook.jks -keyalg RSA -keysize 2048 -validity 10000 -alias nextbook
+
+6B)
+Copiar llave y pegarla junto al archivo apk generado:
+cp mi_llave.jks ./android/app/build/outputs/apk/release/
+cp nextbook.jks ./android/app/build/outputs/apk/release/
+
+6C)
+Ir al directorio en donde está el archivo APK y firmarlo:
+cd ./android/app/build/outputs/apk/release/
+jarsigner -verbose -keystore mi_llave.jks app-release-unsigned.apk mi_llave
+jarsigner -verbose -keystore nextbook.jks app-release-unsigned.apk nextbook
+
+7)
+Optimizar APK:
+zipalign -v 4 app-release-unsigned.apk app-release-signed.apk
+
+
+¿Hiciste cambios en el proyecto?
+
+Generar una APK actualizada en caso de hacer cambios en el proyecto:
+a) Ir al directorio raiz del proyecto
+b) ionic build --prod
+c) npx cap copy android
+d) npx cap sync android
+e) y luego ejecutar los pasos 5 hasta el 7 con excepción del paso 6A
+
+
+
+
+OTROS COMANDOS:
+
+pruebas e2e:
+npm install cypress --save-dev
+
+npx cypress open
+
+pruebas unitarias
+ng test
+
+
+Generar arhcivo bundle .AAB:
+./gradlew bundleRelease
+
+
+añadir android sdk al path del sistema
+C:\Users\<TuUsuario>\AppData\Local\Android\Sdk\tools
+C:\Users\<TuUsuario>\AppData\Local\Android\Sdk\tools\bin
+C:\Users\<TuUsuario>\AppData\Local\Android\Sdk\platform-tools
+C:\Users\<TuUsuario>\AppData\Local\Android\Sdk\build-tools\34.0.0
+
+añadir esta variable a las variables de entorno del sistema:
+nombre: ANDROID_HOME
+ruta: C:\Users\<TuUsuario>\AppData\Local\Android\Sdk\
+
+
+añadir java al path
+C:\Program Files\Java\jdk-21.0.2\bin
+
+añadir esta variable a las variables de entorno del sistema:
+nombre: JAVA_HOME
+ruta: C:\Program Files\Java\jdk-21.0.2\
+
+
+
+npx cap open android
+ionic cap run android
